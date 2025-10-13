@@ -6,3 +6,11 @@ ToDo:
 - [ ] AlmaLinux 8
 - [ ] AlmaLinux 9
 - [ ] AlmaLinux 10
+
+- [ ] Alpine Linux
+
+- [ ] Elementary OS
+
+- [ ] Rocky Linux 8
+- [ ] Rocky Linux 9
+- [ ] Rocky Linux 10
