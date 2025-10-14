@@ -5,7 +5,7 @@ ToDo:
 
 - [x] AlmaLinux 8
 - [x] AlmaLinux 9
-- [ ] AlmaLinux 10
+- [x] AlmaLinux 10
 
 - [ ] Alpine Linux
 
