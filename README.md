@@ -3,8 +3,8 @@ Custom examples for additional OSes located in the c2-files of the [RPi-PXE-Serv
 
 ToDo:
 
-- [ ] AlmaLinux 8
-- [ ] AlmaLinux 9
+- [x] AlmaLinux 8
+- [x] AlmaLinux 9
 - [ ] AlmaLinux 10
 
 - [ ] Alpine Linux
