@@ -7,7 +7,7 @@ ToDo:
 - [x] AlmaLinux 9
 - [x] AlmaLinux 10
 
-- [ ] Alpine Linux
+- [x] Alpine Linux
 
 - [ ] Elementary OS
 
