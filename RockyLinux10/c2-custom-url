@@ -33,7 +33,7 @@ fi
 # Ensure your CUSTOM_ENTRY name is unique
 # and the same name as in c2-custom-handle and c2-custom-menu
 
-ROCKYLINUX8_X64=rockylinux8-x64
-ROCKYLINUX8_X64_URL=https://dl.rockylinux.org/pub/rocky/8/live/x86_64/Rocky-8-Workstation-x86_64-latest.iso
-ROCKYLINUX8_X64_SUM=https://dl.rockylinux.org/pub/rocky/8/live/x86_64/Rocky-8-Workstation-x86_64-latest.iso.CHECKSUM
-ROCKYLINUX8_X64_SUM_TYPE=sha256
+ROCKYLINUX10_X64=rockylinux10-x64
+ROCKYLINUX10_X64_URL=https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso
+ROCKYLINUX10_X64_SUM=https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso.CHECKSUM
+ROCKYLINUX10_X64_SUM_TYPE=sha256

@@ -12,5 +12,5 @@ ToDo:
 - [x] Elementary OS
 
 - [x] Rocky Linux 8
-- [ ] Rocky Linux 9
-- [ ] Rocky Linux 10
+- [x] Rocky Linux 9
+- [x] Rocky Linux 10
