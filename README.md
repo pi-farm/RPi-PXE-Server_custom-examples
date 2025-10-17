@@ -9,7 +9,11 @@ ToDo:
 
 - [x] Alpine Linux
 
+- [ ] CachyOS
+
 - [x] Elementary OS
+
+- [ ] PopOS
 
 - [x] Rocky Linux 8
 - [x] Rocky Linux 9
