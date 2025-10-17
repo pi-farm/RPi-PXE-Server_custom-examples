@@ -9,7 +9,7 @@ ToDo:
 
 - [x] Alpine Linux
 
-- [ ] Elementary OS
+- [x] Elementary OS
 
 - [x] Rocky Linux 8
 - [ ] Rocky Linux 9
