@@ -18,3 +18,5 @@ ToDo:
 - [x] Rocky Linux 8
 - [x] Rocky Linux 9
 - [x] Rocky Linux 10
+
+- [x] ZorinOS 18 Core
