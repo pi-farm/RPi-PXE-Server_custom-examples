@@ -11,6 +11,8 @@ ToDo:
 
 - [ ] CachyOS
 
+- [x] Deepin
+
 - [x] Elementary OS
 
 - [ ] PopOS
