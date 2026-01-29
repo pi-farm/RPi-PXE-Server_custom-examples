@@ -43,7 +43,8 @@ fi
     ########################################
     LABEL $CACHYOS_X64
         MENU LABEL CachyOS x64
-        LINUX $FILE_BASE$NFS_ETH0/$CACHYOS_X64/arch/boot/x86_64/vmlinuz-linux-cachyos-lts archisobasedir=arch archisosearchuuid=2025-08-28-13-38-09-00 cow_spacesize=10G copytoram=auto module_blacklist=pcspkr i915.modeset=1 amdgpu.modeset=1 nvme_load=yes
+        LINUX $FILE_BASE$NFS_ETH0/$CACHYOS_X64/arch/boot/x86_64/vmlinuz-linux-cachyos-lts archisobasedir=arch archisosearchuuid=2025-08-28-13-38-09-00 cow_spacesize=10G copytoram=auto module_blacklist=pcspkr i915.modeset=1 amdgpu.modeset=1 
+        #nvme_load=yes
         INITRD $FILE_BASE$NFS_ETH0/$CACHYOS_X64/arch/boot/x86_64/initramfs-linux-cachyos-lts.img
         #APPEND ip=dhcp root=live:$FILE_BASE$ISO/$CACHYOS_X64.iso rd.live.image
         TEXT HELP
