@@ -1,0 +1,256 @@
+#!/bin/bash
+
+########################################################################
+if [[ -z "$script_dir" ]]
+then
+  echo 'do not run this script directly !'
+  echo 'this script is part of run.sh'
+  exit -1
+fi
+########################################################################
+
+
+########################################################################
+# Add your custom entries to this file.
+#
+# Ensure your $CUSTOM_ENTRY name is unique
+# and the same name as in handle_custom and url_custom
+
+#========== BEGIN Example ==========
+# if [[ -f "$FILE_MENU" ]] \                            # This line is needed on ALL entries
+# && [[ -f "$DST_ISO/$CUSTOM_ENTRY.iso" ]]; then        # This file may be the iso itself, or any file in the iso. It just verifies the file exists
+#    echo  -e "\e[36m    add $CUSTOM_ENTRY\e[0m";       # Use your $custom_entry name
+#    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null    # This line is needed on ALL entries
+#    ########################################
+#    LABEL $CUSTOM_ENTRY                                                 # This is best to use your $CUSTOM_ENTRY name, but can be any unique name with no whitespace
+#        MENU LABEL My Customized Linux x64                              # This can be anything. This is what will be displayed on the Menu
+#        KERNEL $FILE_BASE$NFS_ETH0/$CUSTOM_ENTRY/live/vmlinuz-5.7.7     # This entry and <unknown> entries below are what loads the OS. You'll have to determine these yourself
+#        INITRD $FILE_BASE$NFS_ETH0/$CUSTOM_ENTRY/live/initrd-5.7.7.lz   # Look at other entries in the main p2-include-menu for a similar distro and try those/similar settings
+#        APPEND nfsroot=$IP_ETH0:$DST_NFS_ETH0/$CUSTOM_ENTRY ro netboot=nfs ip=dhcp boot=live union=overlay livecd-installer console=tty splash --
+#        TEXT HELP
+#            Boot into My Custom Linux version x64      # This can be anything. This is what will be displayed when the menu entry is selected
+#        ENDTEXT
+# EOF
+# fi
+#=========== END Example===========
+
+#========== BEGIN AlmaLinux 8 x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ALMALINUX8_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ALMALINUX8_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ALMALINUX8_X64
+        MENU LABEL AlmaLinux 8 x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ALMALINUX8_X64/images/pxeboot/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ALMALINUX8_X64/images/pxeboot/initrd.img
+        APPEND ip=dhcp root=live:$FILE_BASE$ISO/$ALMALINUX8_X64.iso rd.live.image
+        TEXT HELP
+            Boot into AlmaLinux 8 x64
+        ENDTEXT
+EOF
+fi
+#=========== END AlmaLinux 8 x64 ===========
+#========== BEGIN AlmaLinux 9 x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ALMALINUX9_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ALMALINUX9_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ALMALINUX9_X64
+        MENU LABEL AlmaLinux 9 x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ALMALINUX9_X64/images/pxeboot/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ALMALINUX9_X64/images/pxeboot/initrd.img
+        APPEND ip=dhcp root=live:$FILE_BASE$ISO/$ALMALINUX9_X64.iso rd.live.image
+        TEXT HELP
+            Boot into AlmaLinux 9 x64
+        ENDTEXT
+EOF
+fi
+#=========== END AlmaLinux 9 x64 ===========
+#========== BEGIN AlmaLinux 10 x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ALMALINUX10_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ALMALINUX10_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ALMALINUX10_X64
+        MENU LABEL AlmaLinux 10 x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ALMALINUX10_X64/images/pxeboot/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ALMALINUX10_X64/images/pxeboot/initrd.img
+        APPEND ip=dhcp root=live:$FILE_BASE$ISO/$ALMALINUX10_X64.iso rd.live.image
+        TEXT HELP
+            Boot into AlmaLinux 10 x64
+        ENDTEXT
+EOF
+fi
+#=========== END AlmaLinux 10 x64 ===========
+#========== BEGIN Alpine Linux x64 ==========
+ if [[ -f "$FILE_MENU" ]]; then
+    echo  -e "\e[36m    add $ALPINELINUX_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ALPINELINUX_X64
+        MENU LABEL Alpine Linux x64
+        KERNEL http://dl-cdn.alpinelinux.org/latest-stable/releases/x86_64/netboot/vmlinuz-lts
+        INITRD http://dl-cdn.alpinelinux.org/latest-stable/releases/x86_64/netboot/initramfs-lts
+        APPEND modloop=http://dl-cdn.alpinelinux.org/latest-stable/releases/x86_64/netboot/modloop-lts modules=loop,squashfs,sd-mod,usb-storage alpine_repo=http://dl-cdn.alpinelinux.org/alpine/latest-stable/main 
+        TEXT HELP
+            Boot into Alpine Linux x64
+        ENDTEXT
+EOF
+fi
+#=========== END Alpine Linux x64 ===========
+#========== BEGIN CachyOS x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$CACHYOS_X64.iso" ]]; then
+    echo  -e "\e[36m    add $CACHYOS_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $CACHYOS_X64
+        MENU LABEL CachyOS x64
+        LINUX $FILE_BASE$NFS_ETH0/$CACHYOS_X64/arch/boot/x86_64/vmlinuz-linux-cachyos-lts archisobasedir=arch archisosearchuuid=2025-08-28-13-38-09-00 cow_spacesize=10G copytoram=auto module_blacklist=pcspkr i915.modeset=1 amdgpu.modeset=1 
+        #nvme_load=yes
+        INITRD $FILE_BASE$NFS_ETH0/$CACHYOS_X64/arch/boot/x86_64/initramfs-linux-cachyos-lts.img
+        #APPEND ip=dhcp root=live:$FILE_BASE$ISO/$CACHYOS_X64.iso rd.live.image
+        TEXT HELP
+            Boot into CachyOS x64
+        ENDTEXT
+EOF
+fi
+#=========== END CachyOS x64 ===========
+#========== BEGIN Deepin x64 ==========
+ if [[ -f "$FILE_MENU" ]]; then
+    echo  -e "\e[36m    add $DEEPIN_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $DEEPIN_X64
+        MENU LABEL Deepin x64
+        LINUX $FILE_BASE$NFS_ETH0/$DEEPIN_X64/live/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$DEEPIN_X64/live/initrd
+        APPEND ip=dhcp nfsroot=$IP_ETH0:$DST_NFS_ETH0/$DEEPIN_X64 ro netboot=nfs boot=live components splash union=overlay
+        TEXT HELP
+            Boot into Deepin x64
+        ENDTEXT
+EOF
+fi
+#=========== END Deepin x64 ===========
+#========== BEGIN Elementary OS x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ELEMENTARYOS_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ELEMENTARYOS_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ELEMENTARYOS_X64
+        MENU LABEL Elementary OS x64
+        LINUX $FILE_BASE$NFS_ETH0/$ELEMENTARYOS_X64/casper/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ELEMENTARYOS_X64/casper/initrd.lz
+        APPEND ip=dhcp nfsroot=$IP_ETH0:$DST_NFS_ETH0/$ELEMENTARYOS_X64 ro netboot=nfs file=/cdrom/preseed/ubuntu.seed boot=casper maybe-ubiquity fsc>
+        TEXT HELP
+            Boot into Elementary OS x64
+        ENDTEXT
+EOF
+fi
+#=========== END Elementary OS x64 ===========
+#========== BEGIN Pop OS Generic x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$POPOSG_X64.iso" ]]; then
+    echo  -e "\e[36m    add $POPOSG_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $POPOSG_X64
+        MENU LABEL Pop OS Generic x64
+        LINUX $FILE_BASE$NFS_ETH0/$POPOSG_X64/casper/vmlinuz.efi
+        INITRD $FILE_BASE$NFS_ETH0/$POPOSG_X64/casper/initrd.gz
+        APPEND ip=dhcp nfsroot=$IP_ETH0:$DST_NFS_ETH0/$POPOSG_X64 ro netboot=nfs file=/casper/filesystem.squashfs boot=casper
+        TEXT HELP
+            Boot into Pop OS Generic x64
+        ENDTEXT
+EOF
+fi
+#=========== END Pop OS Generic x64 ===========
+#========== BEGIN Pop OS Nvidia x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$POPOSN_X64.iso" ]]; then
+    echo  -e "\e[36m    add $POPOSN_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $POPOSN_X64
+        MENU LABEL Pop OS Nvidia x64
+        LINUX $FILE_BASE$NFS_ETH0/$POPOSN_X64/casper/vmlinuz.efi
+        INITRD $FILE_BASE$NFS_ETH0/$POPOSN_X64/casper/initrd.gz
+        APPEND ip=dhcp nfsroot=$IP_ETH0:$DST_NFS_ETH0/$POPOSN_X64 ro netboot=nfs file=/casper/filesystem.squashfs boot=casper
+        TEXT HELP
+            Boot into Pop OS Nvidia x64
+        ENDTEXT
+EOF
+fi
+#=========== END Pop OS Nvidia x64 ===========
+#========== BEGIN Rocky Linux 8 x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ROCKYLINUX8_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ROCKYLINUX8_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ROCKYLINUX8_X64
+        MENU LABEL Rocky Linux 8 x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ROCKYLINUX8_X64/images/pxeboot/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ROCKYLINUX8_X64/images/pxeboot/initrd.img
+        APPEND ip=dhcp root=live:$FILE_BASE$ISO/$ROCKYLINUX8_X64.iso rd.live.image
+        TEXT HELP
+            Boot into Rocky Linux 8 x64
+        ENDTEXT
+EOF
+fi
+#=========== END Rocky Linux 8 x64 ===========
+#========== BEGIN Rocky Linux 9 x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ROCKYLINUX9_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ROCKYLINUX9_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ROCKYLINUX9_X64
+        MENU LABEL Rocky Linux 9 x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ROCKYLINUX9_X64/images/pxeboot/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ROCKYLINUX9_X64/images/pxeboot/initrd.img
+        APPEND ip=dhcp root=live:$FILE_BASE$ISO/$ROCKYLINUX9_X64.iso rd.live.image
+        TEXT HELP
+            Boot into Rocky Linux 9 x64
+        ENDTEXT
+EOF
+fi
+#=========== END Rocky Linux 9 x64 ===========
+#========== BEGIN Rocky Linux 10 x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ROCKYLINUX10_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ROCKYLINUX10_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ROCKYLINUX10_X64
+        MENU LABEL Rocky Linux 10 x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ROCKYLINUX10_X64/boot/x86_64/loader/linux
+        INITRD $FILE_BASE$NFS_ETH0/$ROCKYLINUX10_X64/boot/x86_64/loader/initrd
+        APPEND ip=dhcp root=live:$FILE_BASE$ISO/$ROCKYLINUX10_X64.iso rd.live.image
+        TEXT HELP
+            Boot into Rocky Linux 10 x64
+        ENDTEXT
+EOF
+fi
+#=========== END Rocky Linux 10 x64 ===========
+#========== BEGIN ZorinOS 18 Core x64 ==========
+ if [[ -f "$FILE_MENU" ]] \
+ && [[ -f "$DST_ISO/$ZORINOS_18_CORE_X64.iso" ]]; then
+    echo  -e "\e[36m    add $ZORINOS_18_CORE_X64\e[0m";
+    cat << EOF | sudo tee -a $FILE_MENU &>/dev/null
+    ########################################
+    LABEL $ZORINOS_18_CORE_X64
+        MENU LABEL ZorinOS 18 Core x64
+        KERNEL $FILE_BASE$NFS_ETH0/$ZORINOS_18_CORE_X64/casper/vmlinuz
+        INITRD $FILE_BASE$NFS_ETH0/$ZORINOS_18_CORE_X64/casper/initrd.zstd
+        APPEND ip=dhcp nfsroot=$IP_ETH0:$DST_NFS_ETH0/$ZORINOS_18_CORE_X64 ro netboot=nfs boot=casper fsck.mode=skip maybe-ubiquity splash
+        TEXT HELP
+            Boot into ZorinOS 18 Core x64
+        ENDTEXT
+EOF
+fi
+#=========== END ZorinOS 18 Core x64 ===========

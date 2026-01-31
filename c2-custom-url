@@ -1,0 +1,90 @@
+#!/bin/bash
+
+########################################################################
+if [[ -z "$script_dir" ]]
+then
+  echo 'do not run this script directly !'
+  echo 'this script is part of run.sh'
+  exit -1
+fi
+########################################################################
+
+
+########################################################################
+# Add your custom entry URLs to this file
+#
+# Example:
+#	CUSTOM_ENTRY1=my-custom-linux-x64
+#	CUSTOM_ENTRY1_URL=https://isos.my-live-os.org/my_customized_linux-super-cool.iso
+#	CUSTOM_ENTRY1_SUM=https://isos.my-live-os.org/my_customized_linux-super-cool.sum
+#	CUSTOM_ENTRY1_SUM_TYPE=sha256
+#
+# For local files, use the full path starting from the root directory - /
+# Example:
+#	CUSTOM_ENTRY2=my-custom-linux-x64
+#	CUSTOM_ENTRY2_URL=/home/pi/Downloads/my_customized_linux-super-cool.iso
+#	CUSTOM_ENTRY2_SUM=/home/pi/Downloads/my_customized_linux-super-cool.sum
+#	CUSTOM_ENTRY2_SUM_TYPE=sha256
+#
+# Note:
+#   ..._SUM=       Optional. Url to a file that contains somewhere the hash value of the image file
+#   ..._SUM_TYPE=  Optional. Hash function used to calculate the hash value of the image file
+#
+# Ensure your CUSTOM_ENTRY name is unique
+# and the same name as in c2-custom-handle and c2-custom-menu
+
+ALMALINUX8_X64=almalinux8-x64
+ALMALINUX8_X64_URL=https://repo.almalinux.org/almalinux/8.10/live/x86_64/AlmaLinux-8-latest-x86_64-Live-GNOME-Mini.iso
+ALMALINUX8_X64_SUM=https://raw.repo.almalinux.org/almalinux/8.10/live/x86_64/CHECKSUM
+ALMALINUX8_X64_SUM_TYPE=sha256
+
+ALMALINUX9_X64=almalinux9-x64
+ALMALINUX9_X64_URL=https://raw.repo.almalinux.org/almalinux/9.6/live/x86_64/AlmaLinux-9-latest-x86_64-Live-GNOME-Mini.iso
+ALMALINUX9_X64_SUM=https://raw.repo.almalinux.org/almalinux/9.6/live/x86_64/CHECKSUM
+ALMALINUX9_X64_SUM_TYPE=sha256
+
+ALMALINUX10_X64=almalinux10-x64
+ALMALINUX10_X64_URL=https://raw.repo.almalinux.org/almalinux/10/live/x86_64/AlmaLinux-10-latest-x86_64-Live-GNOME.iso
+ALMALINUX10_X64_SUM=https://raw.repo.almalinux.org/almalinux/10/live/x86_64/CHECKSUM
+ALMALINUX10_X64_SUM_TYPE=sha256
+
+ALPINELINUX_X64=alpinelinux-x64
+
+CACHYOS_X64=cachyos-x64
+CACHYOS_X64_URL=https://mirror.cachyos.org/ISO/desktop/250828/cachyos-desktop-linux-250828.iso
+CACHYOS_X64_SUM=https://mirror.cachyos.org/ISO/desktop/250828/cachyos-desktop-linux-250828.iso.sha256
+CACHYOS_X64_SUM_TYPE=sha256
+
+DEEPIN_X64=deepin-x64
+DEEPIN_X64_URL=https://cdimage.deepin.com/releases/25.0.1/amd64/deepin-desktop-community-25.0.1-amd64.iso
+DEEPIN_X64_SUM=https://cdimage.deepin.com/releases/25.0.1/amd64/SHA256SUMS
+DEEPIN_X64_SUM_TYPE=sha256
+
+ELEMENTARYOS_X64=elementaryos-x64
+ELEMENTARYOS_X64_URL=https://ams3.dl.elementary.io/download/MTc2MDM4OTYwNw==/elementaryos-8.0-stable-amd64.20250902rc.iso
+
+POPOSG_X64=poposg-x64
+POPOSG_X64_URL=https://iso.pop-os.org/24.04/amd64/generic/22/pop-os_24.04_amd64_generic_22.iso
+
+POPOSN_X64=poposn-x64
+POPOSN_X64_URL=https://iso.pop-os.org/24.04/amd64/nvidia/22/pop-os_24.04_amd64_nvidia_22.iso
+
+ROCKYLINUX8_X64=rockylinux8-x64
+ROCKYLINUX8_X64_URL=https://dl.rockylinux.org/pub/rocky/8/live/x86_64/Rocky-8-Workstation-x86_64-latest.iso
+ROCKYLINUX8_X64_SUM=https://dl.rockylinux.org/pub/rocky/8/live/x86_64/Rocky-8-Workstation-x86_64-latest.iso.CHECKSUM
+ROCKYLINUX8_X64_SUM_TYPE=sha256
+
+ROCKYLINUX9_X64=rockylinux9-x64
+ROCKYLINUX9_X64_URL=https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso
+ROCKYLINUX9_X64_SUM=https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso.CHECKSUM
+ROCKYLINUX9_X64_SUM_TYPE=sha256
+
+ROCKYLINUX10_X64=rockylinux10-x64
+ROCKYLINUX10_X64_URL=https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso
+ROCKYLINUX10_X64_SUM=https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso.CHECKSUM
+ROCKYLINUX10_X64_SUM_TYPE=sha256
+
+ZORINOS_18_CORE_X64=zorinos18-core-x64
+ZORINOS_18_CORE_X64_URL=https://ftp.halifax.rwth-aachen.de/zorinos/18/Zorin-OS-18-Core-64-bit.iso
+ZORINOS_18_CORE_X64_SUM=98666287ca5afae215def4804aca479bf3b439e028bc8f4e4d8ecddb6dd27339
+ZORINOS_18_CORE_X64_SUM_TYPE=sha256
